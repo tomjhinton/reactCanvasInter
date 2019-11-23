@@ -2,6 +2,8 @@ import React from 'react'
 
 
 import Trinagles from './Triangles'
+import Points from './Points'
+import Gradient from './Gradient'
 import Sidebar from './Sidebar'
 
 const Home = () => {
@@ -14,7 +16,11 @@ const Home = () => {
             <Sidebar />
           </div>
           <div className="column">
-            <Trinagles />
+            <div className="container">
+              <Trinagles />
+              <Points />
+              <Gradient />
+            </div>
           </div>
         </div>
       </div>
