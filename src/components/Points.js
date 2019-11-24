@@ -111,18 +111,18 @@ class Points extends React.Component {
       ctx.beginPath()
       for (var i = 0, x = points.length; i < x; i++) {
 
-        var starI = points[i]
-        ctx.moveTo(starI.x,starI.y)
+        var pointA = points[i]
+        ctx.moveTo(pointA.x,pointA.y)
 
-        if(distance(mouse, starI) < 150){
+        if(distance(mouse, pointA) < 150){
 
           ctx.lineTo(mouse.x, mouse.y)
 
           for (var j = 0, y = points.length; j < y; j++) {
-            var starII = points[j]
-            if(distance(starI, starII) < 95) {
-            //ctx.globalAlpha = (1 / 150 * distance(starI, starII).toFixed(1));
-              ctx.lineTo(starII.x,starII.y)
+            var pointB = points[j]
+            if(distance(pointA, pointB) < 95) {
+
+              ctx.lineTo(pointB.x,pointB.y)
             }
           }
         }

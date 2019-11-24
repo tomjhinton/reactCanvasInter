@@ -5,6 +5,8 @@ import Trinagles from './Triangles'
 import Points from './Points'
 import Gradient from './Gradient'
 import Circles from './Circles'
+import Curves from './Curves'
+
 import Sidebar from './Sidebar'
 
 const Home = () => {
@@ -22,6 +24,7 @@ const Home = () => {
               <Points />
               <Gradient />
               <Circles />
+              <Curves />
             </div>
           </div>
         </div>

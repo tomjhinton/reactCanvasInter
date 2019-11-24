@@ -4,7 +4,7 @@ import React from 'react'
 
 
 
-class Circles extends React.Component {
+class Curves extends React.Component {
 
 
   constructor() {
@@ -34,7 +34,7 @@ class Circles extends React.Component {
   }
 
   draw(){
-    const canvas = document.getElementById('circles')
+    const canvas = document.getElementById('curves')
     const ctx = canvas.getContext('2d')
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     ctx.globalAlpha = 1
@@ -50,7 +50,7 @@ class Circles extends React.Component {
 
       const x = evt.offsetX
       const y = evt.offsetY
-      new createParticleAtPoint( evt.offsetX,  evt.offsetY, `rgba(${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)},1)`)
+
       // Get the color data of the canvas version of our element at that location
       const rgbaColorArr = ctx.getImageData(x, y, 1, 1).data
 
@@ -60,11 +60,12 @@ class Circles extends React.Component {
     }, false)
 
     canvas.addEventListener('mouseleave', function() {
-
+      mouse.x=0
+      mouse.y=0
       ctx.fillStyle = 'black'
       ctx.fillRect(0, 0, canvas.width, canvas.height)
       console.log('hiya')
-      particles =  []
+
     }, false)
 
     canvas.addEventListener('mouseenter', function() {
@@ -79,44 +80,47 @@ class Circles extends React.Component {
       y: 0
     }
 
-    let particles = []
-    function createParticleAtPoint(x, y, color) {
-      const particle = {}
-      particle.posX = x
-      particle.posY = y
-      particle.startTime = Date.now()
-      particle.radius = Math.floor(Math.random()*40)
-      particle.color = color
-
-      particles.push(particle)
-
-
-    }
 
     setInterval(function () {
-      const canvas = document.getElementById('circles')
+      const canvas = document.getElementById('curves')
       const ctx = canvas.getContext('2d')
       ctx.clearRect(0, 0, canvas.width, canvas.height)
       ctx.globalAlpha = 1
       ctx.fillStyle = 'black'
       ctx.fillRect(0, 0, canvas.width, canvas.height)
-      particles  = particles.filter(x=> x.posY < canvas.height + x.radius)
-      particles  = particles.filter(x=> x.posX < canvas.width + x.radius)
-      particles.map(x  => {
-        ctx.beginPath()
-        ctx.arc(x.posX, x.posY, x.radius, 0, Math.PI * 2)
-        ctx.globalAlpha = 0.1
-        ctx.fillStyle = x.color
-        ctx.fill()
 
-        x.posY +=  Math.random()
-        x.posX +=  Math.random()
-
-
-
+      ctx.globalAlpha = 0.5
+      ctx.strokeStyle = `rgba(${mouse.x},${mouse.y},${mouse.y},1)`
+      // ctx.shadowOffsetX = 2
+      // ctx.shadowOffsetY = 2
+      // ctx.shadowBlur    = 12
+      // ctx.shadowColor   = 'green'
+      ctx.lineWidth = 200
+      ctx.beginPath()
+      ctx.moveTo(0, 0)
+      ctx.quadraticCurveTo(0, mouse.x, canvas.width+50, canvas.height)
+      ctx.stroke()
 
 
-      })
+      ctx.strokeStyle = `rgba(${mouse.y},${mouse.y},${mouse.x},1)`
+      ctx.lineWidth = 200
+      ctx.beginPath()
+      ctx.moveTo(canvas.width, 0)
+      ctx.quadraticCurveTo(0, mouse.y, 0, canvas.height)
+      ctx.stroke()
+
+      // Start and end points
+      // ctx.fillStyle = 'blue';
+      // ctx.beginPath();
+      // ctx.arc(50, 20, 5, 0, 2 * Math.PI);   // Start point
+      // ctx.arc(50, 100, 5, 0, 2 * Math.PI);  // End point
+      // ctx.fill();
+      //
+      // // Control point
+      // ctx.fillStyle = 'red';
+      // ctx.beginPath();
+      // ctx.arc(230, 30, 5, 0, 2 * Math.PI);
+      // ctx.fill();
     }, 100)
 
 
@@ -129,11 +133,11 @@ class Circles extends React.Component {
 
 
     return(
-      <div className='circlesDiv'>
-        <canvas id="circles" width={900} height={280}>  </canvas>
+      <div className='curvesDiv'>
+        <canvas id="curves" width={900} height={280}>  </canvas>
       </div>
     )
   }
 }
 
-export default Circles
+export default Curves
