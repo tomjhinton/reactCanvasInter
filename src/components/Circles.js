@@ -82,9 +82,9 @@ class Points extends React.Component {
 
     let particles = []
     function createParticleAtPoint(x, y, color) {
-      let particle = {};
-      particle.startX = x;
-      particle.startY = y;
+      const particle = {}
+      particle.posX = x
+      particle.posY = y
       particle.startTime = Date.now()
       particle.radius = Math.floor(Math.random()*40)
       particle.color = color
@@ -92,7 +92,7 @@ class Points extends React.Component {
       particles.push(particle)
 
 
-}
+    }
 
     setInterval(function () {
       const canvas = document.getElementById('circles')
@@ -101,22 +101,22 @@ class Points extends React.Component {
       ctx.globalAlpha = 1
       ctx.fillStyle = 'black'
       ctx.fillRect(0, 0, canvas.width, canvas.height)
-      particles  = particles.filter(x=> x.startY < canvas.height + x.radius)
-      particles  = particles.filter(x=> x.startX < canvas.width + x.radius)
+      particles  = particles.filter(x=> x.posY < canvas.height + x.radius)
+      particles  = particles.filter(x=> x.posX < canvas.width + x.radius)
       particles.map(x  => {
-        ctx.beginPath();
-        ctx.arc(x.startX, x.startY, x.radius, 0, Math.PI * 2);
+        ctx.beginPath()
+        ctx.arc(x.posX, x.posY, x.radius, 0, Math.PI * 2)
         ctx.globalAlpha = 0.1
         ctx.fillStyle = x.color
         ctx.fill()
 
-        x.startY +=  Math.random()
-        x.startX +=  Math.random()
+        x.posY +=  Math.random()
+        x.posX +=  Math.random()
 
 
 
       })
-    }, 100);
+    }, 100)
 
 
   }
