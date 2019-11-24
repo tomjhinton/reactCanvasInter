@@ -43,8 +43,8 @@ class Points extends React.Component {
     const  FPS = 60
 
     canvas.addEventListener('mousemove', function(evt) {
-      var mousePos = getMousePos(canvas, evt)
-      var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y
+    //  var mousePos = getMousePos(canvas, evt)
+      //var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y
       mouse.x = evt.offsetX,
       mouse.y = evt.offsetY
       //console.log(message)
@@ -64,14 +64,14 @@ class Points extends React.Component {
 
 
 
-    function getMousePos(canvas, evt) {
-      mouse.x = evt.offsetX,
-      mouse.y = evt.offsetY
-      return {
-        x: evt.offsetX,
-        y: evt.offsetY
-      }
-    }
+    // function getMousePos(canvas, evt) {
+    //   mouse.x = evt.offsetX,
+    //   mouse.y = evt.offsetY
+    //   return {
+    //     x: evt.offsetX,
+    //     y: evt.offsetY
+    //   }
+    // }
 
     const  mouse = {
       x: 0,
@@ -118,15 +118,15 @@ class Points extends React.Component {
 
           ctx.lineTo(mouse.x, mouse.y)
 
-        for (var j = 0, y = points.length; j < y; j++) {
-          var starII = points[j]
-          if(distance(starI, starII) < 95) {
-          //ctx.globalAlpha = (1 / 150 * distance(starI, starII).toFixed(1));
-            ctx.lineTo(starII.x,starII.y)
+          for (var j = 0, y = points.length; j < y; j++) {
+            var starII = points[j]
+            if(distance(starI, starII) < 95) {
+            //ctx.globalAlpha = (1 / 150 * distance(starI, starII).toFixed(1));
+              ctx.lineTo(starII.x,starII.y)
+            }
           }
         }
       }
-    }
       ctx.lineWidth = 0.25
       ctx.strokeStyle = 'green'
       ctx.stroke()
