@@ -61,11 +61,11 @@ class FractalTree extends React.Component {
     }, false)
 
     canvas.addEventListener('mouseleave', function() {
-      mouse.x=0
+      mouse.x= canvas.width+5
       mouse.y=0
       ctx.fillStyle = 'black'
       ctx.fillRect(0, 0, canvas.width, canvas.height)
-      
+
 
     }, false)
 
@@ -114,9 +114,10 @@ class FractalTree extends React.Component {
         ctx.restore()
       }
 
-
-      draw(mouse.x, mouse.y,80,mouse.x)
-      draw(mouse.x, mouse.y,80,mouse.y)
+      if(mouse.x < canvas.width){
+        draw(mouse.x, mouse.y,80,mouse.x)
+        draw(mouse.x, mouse.y,80,mouse.y)
+      }
 
     }, 100)
 
