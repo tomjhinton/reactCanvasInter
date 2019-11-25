@@ -11,7 +11,8 @@ class FractalTree extends React.Component {
     super()
 
     this.state = {
-      time: {}
+      time: {},
+      drawing: true
 
     }
 
@@ -64,12 +65,12 @@ class FractalTree extends React.Component {
       mouse.y=0
       ctx.fillStyle = 'black'
       ctx.fillRect(0, 0, canvas.width, canvas.height)
-      console.log('hiya')
+      
 
     }, false)
 
     canvas.addEventListener('mouseenter', function() {
-
+      //this.setState({ drawing: true })
     }, false)
 
 
@@ -113,8 +114,10 @@ class FractalTree extends React.Component {
         ctx.restore()
       }
 
+
       draw(mouse.x, mouse.y,80,mouse.x)
       draw(mouse.x, mouse.y,80,mouse.y)
+
     }, 100)
 
 

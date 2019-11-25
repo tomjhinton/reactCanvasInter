@@ -64,7 +64,7 @@ class SinLines extends React.Component {
       mouse.y=0
       ctx.fillStyle = 'black'
       ctx.fillRect(0, 0, canvas.width, canvas.height)
-      console.log('hiya')
+
 
     }, false)
 

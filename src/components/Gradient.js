@@ -38,11 +38,10 @@ class Gradients extends React.Component {
     const ctx = canvas.getContext('2d')
 
     canvas.addEventListener('mousemove', function(evt) {
-      var mousePos = getMousePos(canvas, evt)
-      var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y
+
       mouse.x = evt.offsetX,
       mouse.y = evt.offsetY
-      console.log(message)
+
     }, false)
 
     canvas.addEventListener('mouseleave', function() {
@@ -59,14 +58,6 @@ class Gradients extends React.Component {
 
 
 
-    function getMousePos(canvas, evt) {
-      mouse.x = evt.offsetX,
-      mouse.y = evt.offsetY
-      return {
-        x: evt.offsetX,
-        y: evt.offsetY
-      }
-    }
 
     const  mouse = {
       x: 0,

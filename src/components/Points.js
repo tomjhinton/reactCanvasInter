@@ -43,35 +43,23 @@ class Points extends React.Component {
     const  FPS = 60
 
     canvas.addEventListener('mousemove', function(evt) {
-    //  var mousePos = getMousePos(canvas, evt)
-      //var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y
+
       mouse.x = evt.offsetX,
       mouse.y = evt.offsetY
-      //console.log(message)
+
     }, false)
 
     canvas.addEventListener('mouseleave', function() {
 
       ctx.fillStyle = 'black'
       ctx.fillRect(0, 0, canvas.width, canvas.height)
-      console.log('hiya')
     }, false)
 
     canvas.addEventListener('mouseenter', function() {
-      // drawPointsDots()
-      // drawPaths()
+  
     }, false)
 
 
-
-    // function getMousePos(canvas, evt) {
-    //   mouse.x = evt.offsetX,
-    //   mouse.y = evt.offsetY
-    //   return {
-    //     x: evt.offsetX,
-    //     y: evt.offsetY
-    //   }
-    // }
 
     const  mouse = {
       x: 0,
