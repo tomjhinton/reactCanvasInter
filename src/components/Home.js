@@ -8,6 +8,7 @@ import Circles from './Circles'
 import Curves from './Curves'
 import SinCircles from './SinCircles'
 import SinLine from './SinLine'
+import FractalTree from './FractalTree'
 
 import Sidebar from './Sidebar'
 
@@ -29,6 +30,7 @@ const Home = () => {
               <Curves />
               <SinCircles />
               <SinLine />
+              <FractalTree />
             </div>
           </div>
         </div>
