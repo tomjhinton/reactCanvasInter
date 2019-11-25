@@ -91,7 +91,7 @@ class Curves extends React.Component {
 
       ctx.globalAlpha = 0.5
       ctx.strokeStyle = `rgba(${mouse.x},${mouse.y},${mouse.y},1)`
-  
+
       ctx.lineWidth = 200
       ctx.beginPath()
       ctx.moveTo(0, 0)

@@ -40,7 +40,7 @@ class Trinagles extends React.Component {
       size: 30,
       rotation: 0
     }
-    
+
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     ctx.fillStyle = 'black'
     ctx.fillRect(0, 0, canvas.width, canvas.height)
@@ -56,7 +56,7 @@ class Trinagles extends React.Component {
       ctx.fillRect(0, 0, canvas.width, canvas.height)
       triangle.posX =  canvas.height,
       triangle.posY = canvas.width
-      console.log('hiya')
+
     }, false)
 
     function getMousePos(canvas, evt) {
