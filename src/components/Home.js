@@ -7,6 +7,7 @@ import Gradient from './Gradient'
 import Circles from './Circles'
 import Curves from './Curves'
 import SinCircles from './SinCircles'
+import SinLine from './SinLine'
 
 import Sidebar from './Sidebar'
 
@@ -27,6 +28,7 @@ const Home = () => {
               <Circles />
               <Curves />
               <SinCircles />
+              <SinLine />
             </div>
           </div>
         </div>

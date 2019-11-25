@@ -4,7 +4,7 @@ import React from 'react'
 
 
 
-class SinCircles extends React.Component {
+class SinLines extends React.Component {
 
 
   constructor() {
@@ -34,7 +34,7 @@ class SinCircles extends React.Component {
   }
 
   draw(){
-    const canvas = document.getElementById('SinCircles')
+    const canvas = document.getElementById('SinLines')
     const ctx = canvas.getContext('2d')
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     ctx.globalAlpha = 1
@@ -82,7 +82,7 @@ class SinCircles extends React.Component {
 
 
     setInterval(function () {
-      const canvas = document.getElementById('SinCircles')
+      const canvas = document.getElementById('SinLines')
       const ctx = canvas.getContext('2d')
       ctx.clearRect(0, 0, canvas.width, canvas.height)
       ctx.globalAlpha = 1
@@ -94,14 +94,11 @@ class SinCircles extends React.Component {
 
       var cx= mouse.x
       var cy= mouse.y
-      var radius= 150
+      var radius= 15
       var amp= mouse.x
       var sineCount= mouse.y
-      //ctx.lineWidth = mouse.x/mouse.y
-      ctx.shadowOffsetX = 2
-      ctx.shadowOffsetY = 2
-      ctx.shadowBlur    = 8
-      ctx.shadowColor   = 'green'
+      ctx.lineWidth = 0.5
+
       ctx.beginPath()
       for(var i=0;i<360;i++){
         var angle=i*Math.PI/180
@@ -115,8 +112,8 @@ class SinCircles extends React.Component {
       function
       sineCircleXYatAngle(cx,cy,radius,amplitude,angle,sineCount){
 
-        var x = cx+(radius+amplitude*Math.sin(sineCount*angle))*Math.cos(angle)
-        var y = cy+(radius+amplitude*Math.sin(sineCount*angle))*Math.sin(angle)
+        var x = cx+(radius+amplitude*Math.sin(sineCount*angle))*Math.cos(angle)*mouse.x
+        var y = cy+(radius+amplitude*Math.sin(sineCount*angle))*Math.sin(angle)*mouse.y
         return({x: x,y: y})
       }
 
@@ -133,11 +130,11 @@ class SinCircles extends React.Component {
 
 
     return(
-      <div className='SinCirclesDiv'>
-        <canvas id="SinCircles" width={900} height={280}>  </canvas>
+      <div className='SinLinesDiv'>
+        <canvas id="SinLines" width={900} height={280}>  </canvas>
       </div>
     )
   }
 }
 
-export default SinCircles
+export default SinLines
